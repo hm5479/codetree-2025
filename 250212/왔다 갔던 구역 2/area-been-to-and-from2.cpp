@@ -11,7 +11,7 @@ void move(int curr, int x) {
         for (int i = curr; i < curr + x; i++)
             vec[i]++;
     else
-        for (int i = curr; i > curr + x; i--)
+        for (int i = curr - 1; i >= curr + x; i--)
             vec[i]++;
 }
 
