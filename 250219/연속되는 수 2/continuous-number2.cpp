@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -9,18 +10,14 @@ int main() {
     for (int i = 0; i < N; i++)
         cin >> vec[i];
 
-    int ans = 1, comp = 1;
-    for (int i = 1; i < N; i++) {
-        if (vec[i - 1] == vec[i])
-            comp++;
-        else {
-            if (ans < comp)
-                ans = comp;
-            vec[i - 1] = vec[i];
-        }
+    int ans = 0, cnt = 0;
+    for (int i = 0; i < N; i++) {
+        if (i > 0 && vec[i] == vec[i - 1])
+            cnt++;
+        else
+            cnt = 1;
+        ans = max(cnt, ans);
     }
-    if (ans < comp)
-        ans = comp;
 
     cout << ans;
 }
